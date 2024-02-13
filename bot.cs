@@ -10,13 +10,9 @@ public class Bot(string token)
 {
     private readonly TelegramBotClient botClient = new(token);
     private long chatId;
-    private string connectionString = "YOUR CONNECTION STRING HERE";
+    private string connectionString = "YOUR_CONNECTION_STRING_HERE";
     
-    //private string selectedName;
-    //private string selectedColour;
-    //private float selectedHours;
-   // private string selectedWorkType;
-    private int selectedHoursIsPaid;
+     private int selectedHoursIsPaid;
 
     Dictionary<long, SetupState> chatStates = new Dictionary<long, SetupState>();
     Dictionary<long, List<string>> chatInfo = new Dictionary<long, List<string>>();

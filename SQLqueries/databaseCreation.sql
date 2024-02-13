@@ -1,0 +1,38 @@
+-- Create database
+CREATE DATABASE WorkStundenBot;
+GO
+
+-- Switch to the newly created database
+USE WorkStundenBot;
+GO
+
+-- Create USERS table
+CREATE TABLE dbo.USERS (
+    NAME nvarchar(100) PRIMARY KEY NOT NULL,
+    COLOUR nvarchar(100) NOT NULL
+);
+GO
+
+-- Create CLIENT table
+CREATE TABLE dbo.CLIENT (
+    CLIENTID bigint PRIMARY KEY NOT NULL,
+    NAME nvarchar(100) NOT NULL,
+    
+    CONSTRAINT FK_CLIENT_USERS_NAME FOREIGN KEY (NAME)
+    REFERENCES dbo.USERS (NAME)
+);
+GO
+
+-- Create REGISTEREDHOURS table
+CREATE TABLE dbo.REGISTEREDHOURS (
+    REGISTEREDHOURSID int PRIMARY KEY IDENTITY NOT NULL,
+    NAME nvarchar(100) NOT NULL,
+    WORKTYPE nvarchar(100) NOT NULL,
+    HOURS float NOT NULL,
+    HOURSPAID bit NOT NULL,
+    DATE datetime2(7) NULL,
+    
+    CONSTRAINT FK_REGISTEREDHOURS_USERS_NAME FOREIGN KEY (NAME)
+    REFERENCES dbo.USERS (NAME)
+);
+GO
