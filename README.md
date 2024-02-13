@@ -1,4 +1,4 @@
-# Hours Registration Telegram Bot - Dev
+# Hours Registration Telegram Bot
 
 This telegram bot is designed to make registering hours for the WORK drive easy and efficient. 
 
