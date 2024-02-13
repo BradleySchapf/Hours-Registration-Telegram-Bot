@@ -1,5 +1,5 @@
 ﻿
-var bot = new Bot("YOUR BOT API TOKEN HERE");
+var bot = new Bot("YOUR_BOT_TOKEN");
 bot.Start();
 
 Console.WriteLine("Press any key to exit");
