@@ -249,7 +249,14 @@ private ReplyKeyboardMarkup WorkTypeKeyboard = new ReplyKeyboardMarkup(new[]
                     }
                     else
                     {
-                        chatInfo.Add(chatId, [selectedHours.ToString()]);
+                        if (chatInfo.ContainsKey(chatId))
+                        {
+                            chatInfo[chatId] = new List<string> { selectedHours.ToString() };
+                        }
+                        else
+                        {
+                            chatInfo.Add(chatId, new List<string> { selectedHours.ToString() });
+                        }
                         chatStates[chatId] = SetupState.awaitingWorkType;
                         await botClient.SendTextMessageAsync(chatId: chatId, 
                             text: "Was für eine Arbeit hast du gemacht?",
